@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project DefaultTargets="" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  
+  <PropertyGroup>
+    <!--msbuild project file location-->
+    <RootPath>$(MSBuildProjectDirectory)</RootPath>
+
+    <!--Common msbuild target location for each CI step-->
+    <CommonLocation>$(MSBuildProjectDirectory)\CommonTargets</CommonLocation>
+
+    <DocumentationSources>
+      <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\GitTasks\GitTasks.csproj" />
+    </DocumentationSources>
+    
+    <BuildArtifacts>$(RootPath)\..\BuildArtifacts</BuildArtifacts>
+    
+    <!--Build Bundle configurations-->
+    <SourceFilesToZip>$(BuildArtifacts)\ZipStaging</SourceFilesToZip>
+    <!--<ZipSourcePath>$(RootPath)\..\GitTasks\bin\Release</ZipSourcePath>-->
+    <ZipOutPutLocation>$(BuildArtifacts)\DeployableUnit</ZipOutPutLocation>
+    <!--<ZipPath>$(ZipFileLocation)\Continuum.GitTasks.zip</ZipPath>-->
+    
+    <!--Tools used in CI-->
+    <ToolsBasePath>$(RootPath)\BuildTools</ToolsBasePath>
+
+    <!-- OpenCover -->
+    <!-- The tools path for OpenCover -->
+    <OpenCoverPath>$(ToolsBasePath)\OpenCover.4.6.519</OpenCoverPath>
+    <ReportGeneratorPath>$(ToolsBasePath)\ReportGenerator.2.4.5.0\tools</ReportGeneratorPath>
+    <!-- OpenCover report name and location -->
+    <OpenCoverOuputFile>$(BuildArtifacts)\UnitTestCoverage-Output.xml</OpenCoverOuputFile>
+    <OpenCoverTmpOuputFile>$(BuildArtifacts)\coverage-tmp-output.xml</OpenCoverTmpOuputFile>
+    <OpenCoverReportPath>$(BuildArtifacts)\UnitTestCoverageReport</OpenCoverReportPath>
+
+
+    <!-- NUnit -->
+    <!-- The tools path for NUnit -->
+    <NUnitPath>$(ToolsBasePath)\NUnit-2.6.4\NUnit-2.6.4\bin</NUnitPath>
+    <!-- NUnit report name and location -->
+    <NUnitOuputFile>$(BuildArtifacts)\NUnit-Output.xml</NUnitOuputFile>
+
+
+    <!-- StyleCop -->
+    <!-- The tools path for StyleCop -->
+    <StyleCopPath>$(ToolsBasePath)\StyleCop.4.7.33.0\lib\net35\</StyleCopPath>
+    <!-- The StyleCop report name and location -->
+    <StyleCopOutputFile>$(BuildArtifacts)\StyleCop-Output.xml</StyleCopOutputFile>
+    <!-- The StyleCop max violations count -->
+    <StyleCopMaxViolationCount>999</StyleCopMaxViolationCount>
+    <!-- StyleCop Force Full Analysis -->
+    <StyleCopForceFullAnalysis>true</StyleCopForceFullAnalysis>
+    <!-- StyleCop Treat Errors As Warnings -->
+    <StyleCopTreatErrorsAsWarnings>true</StyleCopTreatErrorsAsWarnings>
+    <!-- StyleCop Cache Results -->
+    <StyleCopCacheResults>false</StyleCopCacheResults>
+
+
+
+    <!-- FxCop -->
+    <!-- The FxCop report name and location -->
+    <FxCopOutputFile>$(BuildArtifacts)\FxCop-Output.xml</FxCopOutputFile>
+    <HelpProjectFile>$(RootPath)\CommonTargets\SHFBDocumentation.shfbproj</HelpProjectFile>
+
+  </PropertyGroup>
+
+  <Import Project="$(RootPath)\RepoSpecificProperties.msbuild" />
+  
+</Project>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>  
+
+<Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+
+
+  <!-- The Code Coverage Target, checks code coverage using opencover and NUnit, the 
+			task generates both a coverage report and the test report -->
+  <Target Name="CodeCoverage">
+
+
+    <!-- Define test assembly names in this ItemGroup.  Because ItemGroups are 'cumulative', the first line removes any existing items.--><!--
+    <ItemGroup>
+      <AssemblyToTest Remove="@(AssemblyToTest)" />
+      <AssemblyToTest Include="C:\Users\faiyaz.ganihar\Downloads\MSBuildGitTasks-master\MSBuildGitTasks-master\UnitTests\bin\Debug\UnitTests.dll">
+        <TestAssembly>UnitTests.dll</TestAssembly>
+      </AssemblyToTest>
+    </ItemGroup>-->
+
+    <Message Text="CodeCoverage" />
+
+    <Exec Command="&quot;$(OpenCoverPath)\OpenCover.Console.exe &quot; -register:user -target:&quot;$(NUnitPath)\nunit-console.exe&quot; -targetargs:&quot;/noshadow @(AssemblyToTest)&quot; -filter:+[*]* -output:&quot;$(OpenCoverOuputFile)&quot;" />
+
+    <Delete Files="TestResult.xml"></Delete>
+
+    <MakeDir Directories="$(OpenCoverReportPath)"/>
+
+    <Exec Command="&quot;$(ReportGeneratorPath)\ReportGenerator.exe &quot; &quot;$(OpenCoverOuputFile)&quot; &quot;$(OpenCoverReportPath)&quot;" />
+
+    <Message Text="CodeCoverage finished" />
+
+  </Target>
+
+
+</Project>

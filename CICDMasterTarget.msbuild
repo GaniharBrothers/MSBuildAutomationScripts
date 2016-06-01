@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>  
+
+<Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <Import Project="$(MSBuildProjectDirectory)\CommonTargets\CommonPropertyGroups.msbuild" />
+  
+  <Target Name="StartCI">
+
+
+    <CallTarget Targets="Rebuild">
+    </CallTarget>
+
+    <CallTarget Targets="BundleDeployableUnit">
+    </CallTarget>
+
+    <CallTarget Targets="FxCop">
+    </CallTarget>
+    
+    <CallTarget Targets="StyleCop">
+    </CallTarget>
+    
+    <CallTarget Targets="UnitTest">
+    </CallTarget>
+        
+    <CallTarget Targets="CodeCoverage">
+    </CallTarget>
+        
+    <CallTarget Targets="GenerateDocumentation">
+    </CallTarget>
+
+    
+  </Target>
+
+
+  <Import Project="$(CommonLocation)\Build.msbuild" />
+
+  <Import Project="$(CommonLocation)\FxCop.msbuild" />
+
+  <Import Project="$(CommonLocation)\StyleCop.msbuild" />
+  
+  <Import Project="$(CommonLocation)\UnitTest.msbuild" />
+
+  <Import Project="$(CommonLocation)\CodeCoverage.msbuild" />
+
+  <Import Project="$(CommonLocation)\CreateBundle.msbuild" />
+
+  <Import Project="$(CommonLocation)\GenerateDocumentation.msbuild" />
+
+
+</Project>

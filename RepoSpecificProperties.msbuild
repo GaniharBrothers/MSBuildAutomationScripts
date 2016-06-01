@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project DefaultTargets="" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <PropertyGroup>
+    <!--Source code against which the CI build is triggered-->
+    <SrcBasePath>$(RootPath)\..\GitTasks</SrcBasePath>
+
+    <!--Zip location and name for ultimate deployable unit-->
+    <ZipSourcePath>$(RootPath)\..\GitTasks\bin\Release</ZipSourcePath>
+    <DeployableUnitZipName>$(ZipOutPutLocation)\Continuum.GitTasks.zip</DeployableUnitZipName>
+
+    <AssembliesForCoverageReport>UnitTests.dll UnitTests.dll UnitTests.dll UnitTests.dll</AssembliesForCoverageReport>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <SolutionsToBuild Include="$(MSBuildProjectDirectory)\..\MSBuildGitTasks.sln" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BuildFilesToCopy Include="$(MSBuildProjectDirectory)\..\GitTasks\GitTasks.csproj" />
+    <BuildFilesToCopy Include="$(ZipSourcePath)\*.*" />
+  </ItemGroup>
+
+  <!--<ItemGroup>
+    <DependencyDirectories Include="$(RootPath)\..\GitTasks\bin\Release"/>
+  </ItemGroup>-->
+
+
+  <ItemGroup>
+    <FxCopRules Include="$(ToolsBasePath)\Microsoft Fxcop 10.0\Rules\*.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <StyleCopRules Include="$(ToolsBasePath)\StyleCop.MSBuild.4.7.54.0\tools\Settings.StyleCop" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FilesToFxCop Include="$(MSBuildProjectDirectory)\..\GitTasks\bin\Release\GitTasks.dll"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <FilesToStyleCop Include="$(SrcBasePath)\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyToTest Include="$(MSBuildProjectDirectory)\..\UnitTests\bin\Debug\UnitTests.dll">
+      <TestAssembly>UnitTests.dll</TestAssembly>
+    </AssemblyToTest>
+  </ItemGroup>
+
+      
+    
+  
+  <PropertyGroup>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\GitTasks\GitTasks.csproj" />
+    </DocumentationSources>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>  
+
+<Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <UsingTask AssemblyFile="$(ToolsBasePath)\MSBuild.Extension.Pack.1.8.0\tools\net40\MSBuild.ExtensionPack.dll"
+						 TaskName="MSBuild.ExtensionPack.Compression.Zip"/>
+
+
+  <Target Name="BundleDeployableUnit">
+
+    
+
+    <CallTarget Targets="CreateFolder" Condition="!Exists('$(ZipOutPutLocation)')" />
+
+    <Copy SourceFiles="@(BuildFilesToCopy)" DestinationFolder="$(SourceFilesToZip)" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="true" ></Copy>
+
+    <MSBuild.ExtensionPack.Compression.Zip TaskAction="Create" CompressPath="$(SourceFilesToZip)" ZipFileName="$(DeployableUnitZipName)" RemoveRoot="$(SourceFilesToZip)" />
+
+    <CallTarget Targets="RemoveFolder" Condition="Exists('$(SourceFilesToZip)')" />
+    
+  </Target>
+
+  <Target Name="CreateFolder">
+    <MakeDir
+        Directories="$(ZipOutPutLocation)"/>
+  </Target>
+
+  <Target Name="RemoveFolder">
+    <RemoveDir  Directories="$(SourceFilesToZip);" />
+  </Target>
+
+</Project>
