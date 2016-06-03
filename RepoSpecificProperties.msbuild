@@ -4,39 +4,32 @@
 
   <PropertyGroup>
     <!--Source code against which the CI build is triggered-->
-    <SrcBasePath>$(RootPath)\..\GitTasks</SrcBasePath>
+    <SrcBasePath>$(RootPath)\..\PatchAssessment.WinService</SrcBasePath>
 
     <!--Zip location and name for ultimate deployable unit-->
-    <ZipSourcePath>$(RootPath)\..\GitTasks\bin\Release</ZipSourcePath>
-    <DeployableUnitZipName>$(ZipOutPutLocation)\Continuum.GitTasks.zip</DeployableUnitZipName>
+    <ZipSourcePath>$(RootPath)\..\PatchAssessment.WinService\bin\Release</ZipSourcePath>
+    <DeployableUnitZipName>$(ZipOutPutLocation)\Continuum.Patching.Assessment.zip</DeployableUnitZipName>
 
-    <AssembliesForCoverageReport>UnitTests.dll UnitTests.dll UnitTests.dll UnitTests.dll</AssembliesForCoverageReport>
+    <AssembliesForCoverageReport>Continuum.Patching.Assessment.UnitTesting.dll</AssembliesForCoverageReport>
+
+
   </PropertyGroup>
   
   <ItemGroup>
-    <SolutionsToBuild Include="$(MSBuildProjectDirectory)\..\MSBuildGitTasks.sln" />
+    <SolutionsToBuild Include="$(MSBuildProjectDirectory)\..\PatchAssessmentParsing.sln" />
   </ItemGroup>
 
   <ItemGroup>
-    <BuildFilesToCopy Include="$(MSBuildProjectDirectory)\..\GitTasks\GitTasks.csproj" />
-    <BuildFilesToCopy Include="$(ZipSourcePath)\*.*" />
-  </ItemGroup>
-
-  <!--<ItemGroup>
-    <DependencyDirectories Include="$(RootPath)\..\GitTasks\bin\Release"/>
-  </ItemGroup>-->
-
-
-  <ItemGroup>
-    <FxCopRules Include="$(ToolsBasePath)\Microsoft Fxcop 10.0\Rules\*.dll" />
+      <BuildFilesToCopy Include="$(ZipSourcePath)\*.*" />
   </ItemGroup>
 
   <ItemGroup>
-    <StyleCopRules Include="$(ToolsBasePath)\StyleCop.MSBuild.4.7.54.0\tools\Settings.StyleCop" />
+    <DependencyDirectories Include="$(RootPath)\..\PatchAssessment.WinService\bin\Release"/>
   </ItemGroup>
 
+
   <ItemGroup>
-    <FilesToFxCop Include="$(MSBuildProjectDirectory)\..\GitTasks\bin\Release\GitTasks.dll"/>
+    <FilesToFxCop Include="$(MSBuildProjectDirectory)\..\PatchAssessment.WinService\bin\Release\Continuum.Patching.Assessment.Service.dll"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -44,17 +37,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AssemblyToTest Include="$(MSBuildProjectDirectory)\..\UnitTests\bin\Debug\UnitTests.dll">
+    <AssemblyToTest Include="$(MSBuildProjectDirectory)\..\UnitTesting\bin\Release\Continuum.Patching.Assessment.UnitTesting.dll">
       <TestAssembly>UnitTests.dll</TestAssembly>
     </AssemblyToTest>
   </ItemGroup>
-
-      
-    
-  
+     
   <PropertyGroup>
     <DocumentationSources>
-      <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\GitTasks\GitTasks.csproj" />
+      <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\PatchAssessmentParsing.sln" />
     </DocumentationSources>
   </PropertyGroup>
 

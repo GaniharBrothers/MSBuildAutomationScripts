@@ -27,10 +27,8 @@
         
     <CallTarget Targets="GenerateDocumentation">
     </CallTarget>
-
     
   </Target>
-
 
   <Import Project="$(CommonLocation)\Build.msbuild" />
 

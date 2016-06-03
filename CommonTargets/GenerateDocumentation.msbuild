@@ -7,8 +7,9 @@
 
     
     <MSBuild Projects="$(HelpProjectFile)"
-             Targets="Build"
-              Properties="Configuration=Release;Platform=Any CPU" >
+             Targets="Build"  
+             Properties="Configuration=Release;Platform=Any CPU" 
+             >
     </MSBuild>
 
     

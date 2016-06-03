@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Project DefaultTargets="" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
-  
+
+  <ItemGroup>
+    <StyleCopRules Include="$(ToolsBasePath)\StyleCop.MSBuild.4.7.54.0\tools\Settings.StyleCop" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCopRules Include="$(ToolsBasePath)\Microsoft Fxcop 10.0\Rules\*.dll" />
+  </ItemGroup>
+
   <PropertyGroup>
     <!--msbuild project file location-->
     <RootPath>$(MSBuildProjectDirectory)</RootPath>
@@ -55,15 +62,14 @@
     <!-- StyleCop Cache Results -->
     <StyleCopCacheResults>false</StyleCopCacheResults>
 
-
-
     <!-- FxCop -->
     <!-- The FxCop report name and location -->
     <FxCopOutputFile>$(BuildArtifacts)\FxCop-Output.xml</FxCopOutputFile>
+
     <HelpProjectFile>$(RootPath)\CommonTargets\SHFBDocumentation.shfbproj</HelpProjectFile>
 
   </PropertyGroup>
 
-  <Import Project="$(RootPath)\RepoSpecificProperties.msbuild" />
+  <Import Project="$(RootPath)\..\RepoSpecificProperties.msbuild" />
   
 </Project>
