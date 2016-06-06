@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" />
+  <Modules>
+    <Module skippedDueTo="Filter" hash="FC-A5-04-7A-F1-36-7E-76-6B-C5-75-08-65-84-E7-56-E7-4C-F4-F1">
+      <ModulePath>C:\windows\Microsoft.Net\assembly\GAC_64\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll</ModulePath>
+      <ModuleTime>2016-03-02T14:33:00Z</ModuleTime>
+      <ModuleName>mscorlib</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="60-63-E1-A9-4A-A6-EC-22-36-A9-6E-E9-65-20-51-CF-6D-DC-BE-12">
+      <ModulePath>C:\Users\faiyaz.ganihar\Downloads\NUnit-3.2.1\bin\nunit-console.exe</ModulePath>
+      <ModuleTime>2016-05-24T08:39:34.5180001Z</ModuleTime>
+      <ModuleName>nunit3-console</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="EE-77-8B-34-FE-47-61-EA-AD-62-7D-B3-79-79-9C-B7-64-F3-12-03">
+      <ModulePath>C:\windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</ModulePath>
+      <ModuleTime>2015-11-05T15:06:48Z</ModuleTime>
+      <ModuleName>System</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="72-B4-B4-65-2C-24-75-0E-DA-CF-53-30-B7-A9-01-1E-2A-82-3D-12">
+      <ModulePath>C:\Users\faiyaz.ganihar\Downloads\NUnit-3.2.1\bin\nunit.engine.api.dll</ModulePath>
+      <ModuleTime>2016-05-24T08:39:34.1880001Z</ModuleTime>
+      <ModuleName>nunit.engine.api</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="89-B1-27-CC-C5-40-D4-3C-54-AA-61-41-A8-CB-2B-5C-EE-0E-97-46">
+      <ModulePath>C:\Users\faiyaz.ganihar\Downloads\NUnit-3.2.1\bin\nunit.engine.dll</ModulePath>
+      <ModuleTime>2016-05-24T08:39:34.2320001Z</ModuleTime>
+      <ModuleName>nunit.engine</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="89-B1-27-CC-C5-40-D4-3C-54-AA-61-41-A8-CB-2B-5C-EE-0E-97-46">
+      <ModulePath>C:\Users\faiyaz.ganihar\Downloads\NUnit-3.2.1\bin\nunit.engine.dll</ModulePath>
+      <ModuleTime>2016-05-24T08:39:34.2320001Z</ModuleTime>
+      <ModuleName>nunit.engine</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="CF-7C-5A-57-75-87-21-E0-D5-D9-A4-B6-6E-2E-33-17-9D-6C-8A-C2">
+      <ModulePath>C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll</ModulePath>
+      <ModuleTime>2015-12-10T17:51:24Z</ModuleTime>
+      <ModuleName>System.Xml</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="F3-16-D4-5E-C5-50-B3-22-7B-4E-24-71-CD-D2-35-E6-9C-74-2B-E4">
+      <ModulePath>C:\windows\Microsoft.Net\assembly\GAC_64\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll</ModulePath>
+      <ModuleTime>2015-11-05T15:04:06Z</ModuleTime>
+      <ModuleName>System.Web</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="8A-2E-8F-D6-9D-39-02-4A-2F-30-FC-06-42-F7-0F-A8-32-69-07-72">
+      <ModulePath>C:\Users\faiyaz.ganihar\Downloads\NUnit-3.2.1\bin\Mono.Cecil.dll</ModulePath>
+      <ModuleTime>2016-05-24T08:39:34.0490001Z</ModuleTime>
+      <ModuleName>Mono.Cecil</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="0F-6F-F3-F5-1C-3A-A7-26-E2-D9-16-C9-A4-9C-AD-C3-B6-CA-24-A2">
+      <ModulePath>C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Remoting\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll</ModulePath>
+      <ModuleTime>2015-11-05T15:06:48Z</ModuleTime>
+      <ModuleName>System.Runtime.Remoting</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="9C-DB-95-DC-25-D5-38-7E-C2-3A-20-8F-14-5D-A9-56-2A-D7-00-E3">
+      <ModulePath>C:\windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll</ModulePath>
+      <ModuleTime>2015-11-05T15:06:48Z</ModuleTime>
+      <ModuleName>System.Configuration</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="E7-54-44-89-91-58-FF-D3-61-E4-82-5C-21-8D-AA-7D-AB-6A-D8-FB">
+      <ModulePath>C:\windows\assembly\GAC_64\mscorlib\2.0.0.0__b77a5c561934e089\mscorlib.dll</ModulePath>
+      <ModuleTime>2014-07-08T22:21:16.3542951Z</ModuleTime>
+      <ModuleName>mscorlib</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="F9-04-A8-31-CD-FB-23-72-95-63-5D-14-9A-A0-66-8E-7F-44-93-7A">
+      <ModulePath>C:\windows\assembly\GAC_64\mscorlib\2.0.0.0__b77a5c561934e089\sorttbls.nlp</ModulePath>
+      <ModuleTime>2009-06-10T20:40:02.3042907Z</ModuleTime>
+      <ModuleName>mscorlib</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="6E-30-2E-50-36-FB-60-2C-8E-50-C0-83-54-8B-CC-EA-A8-91-B6-CC">
+      <ModulePath>C:\windows\assembly\GAC_64\mscorlib\2.0.0.0__b77a5c561934e089\sortkey.nlp</ModulePath>
+      <ModuleTime>2009-06-10T20:40:02.2886909Z</ModuleTime>
+      <ModuleName>mscorlib</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="76-2B-08-4C-71-EB-47-87-64-D7-B2-1C-B1-6D-5A-15-BC-1D-D5-42">
+      <ModulePath>C:\Users\faiyaz.ganihar\Downloads\NUnit-3.2.1\bin\nunit-agent.exe</ModulePath>
+      <ModuleTime>2016-05-24T08:39:34.1330001Z</ModuleTime>
+      <ModuleName>nunit-agent</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="89-B1-27-CC-C5-40-D4-3C-54-AA-61-41-A8-CB-2B-5C-EE-0E-97-46">
+      <ModulePath>C:\Users\faiyaz.ganihar\Downloads\NUnit-3.2.1\bin\nunit.engine.dll</ModulePath>
+      <ModuleTime>2016-05-24T08:39:34.2320001Z</ModuleTime>
+      <ModuleName>nunit.engine</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="72-B4-B4-65-2C-24-75-0E-DA-CF-53-30-B7-A9-01-1E-2A-82-3D-12">
+      <ModulePath>C:\Users\faiyaz.ganihar\Downloads\NUnit-3.2.1\bin\nunit.engine.api.dll</ModulePath>
+      <ModuleTime>2016-05-24T08:39:34.1880001Z</ModuleTime>
+      <ModuleName>nunit.engine.api</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="69-83-EA-EB-05-DB-C7-0D-87-78-F7-A0-8E-28-2B-58-34-D4-9C-B5">
+      <ModulePath>C:\windows\assembly\GAC_MSIL\System\2.0.0.0__b77a5c561934e089\System.dll</ModulePath>
+      <ModuleTime>2014-07-08T22:13:21.8898664Z</ModuleTime>
+      <ModuleName>System</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="30-0B-06-AA-56-C3-82-1B-9E-C2-86-15-B1-B5-86-72-49-D0-D6-7C">
+      <ModulePath>C:\windows\assembly\GAC_MSIL\System.Runtime.Remoting\2.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll</ModulePath>
+      <ModuleTime>2014-09-04T01:43:07.8245673Z</ModuleTime>
+      <ModuleName>System.Runtime.Remoting</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="B5-FA-B4-34-D0-72-61-BF-B3-81-7D-65-34-82-B1-F8-87-98-1F-7F">
+      <ModulePath>C:\windows\assembly\GAC_MSIL\System.Xml\2.0.0.0__b77a5c561934e089\System.Xml.dll</ModulePath>
+      <ModuleTime>2015-12-04T14:07:52.0674657Z</ModuleTime>
+      <ModuleName>System.Xml</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="A8-11-D7-52-4C-12-FE-1E-D5-1D-AD-35-BD-8E-E7-0A-41-48-A9-CD">
+      <ModulePath>C:\windows\assembly\GAC_MSIL\System.Configuration\2.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll</ModulePath>
+      <ModuleTime>2014-03-20T22:49:19.4176787Z</ModuleTime>
+      <ModuleName>System.Configuration</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="40-4B-E3-CA-8F-85-4E-60-4F-98-D8-0C-F8-2F-D9-5D-B0-43-52-3E">
+      <ModulePath>C:\windows\assembly\GAC_64\System.Web\2.0.0.0__b03f5f7f11d50a3a\System.Web.dll</ModulePath>
+      <ModuleTime>2015-02-06T23:33:22.6805809Z</ModuleTime>
+      <ModuleName>System.Web</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="8A-2E-8F-D6-9D-39-02-4A-2F-30-FC-06-42-F7-0F-A8-32-69-07-72">
+      <ModulePath>C:\Users\faiyaz.ganihar\Downloads\NUnit-3.2.1\bin\Mono.Cecil.dll</ModulePath>
+      <ModuleTime>2016-05-24T08:39:34.0490001Z</ModuleTime>
+      <ModuleName>Mono.Cecil</ModuleName>
+      <Classes />
+    </Module>
+  </Modules>
+</CoverageSession>

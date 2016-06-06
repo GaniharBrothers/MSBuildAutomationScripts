@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MSBuild.Extension.Pack</id>
+    <version>1.8.0</version>
+    <title>MSBuild.Extension.Pack</title>
+    <authors>Mike Fourie, Sayed Hashimi, Jozsef Fejes, Justin Saunders, Hamid Shahid</authors>
+    <owners>Mike Fourie, Sayed Hashimi, Jozsef Fejes, Justin Saunders, Hamid Shahid</owners>
+    <licenseUrl>http://msbuildextensionpack.codeplex.com/license</licenseUrl>
+    <projectUrl>https://github.com/mikefourie/MSBuildExtensionPack</projectUrl>
+    <iconUrl>http://msbuildextensionpack.com/msbuildlogo.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The MSBuild Extension Pack provides a collection of over 480 MSBuild Tasks, MSBuild Loggers and MSBuild TaskFactories.</description>
+    <summary />
+    <releaseNotes>October 2015 + MSBuild.ExtensionPack.VersionNumber.targets fix</releaseNotes>
+    <copyright>Copyright 2015 MSBuild Extension Pack</copyright>
+    <tags>MSBuild Task Tasks Automation</tags>
+  </metadata>
+</package>

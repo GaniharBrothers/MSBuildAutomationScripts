@@ -11,7 +11,8 @@
   <Target Name="FxCop">
     <!-- Call the task using a collection of files and all default rules -->
     <MSBuild.ExtensionPack.CodeQuality.FxCop TaskAction="Analyse" Files="@(FilesToFxCop)"
-                                             OutputFile="$(FxCopOutputFile)">
+                                             OutputFile="$(FxCopOutputFile)"
+                                             FxCopPath ="$(FxCopToolPath)">
       <Output TaskParameter="AnalysisFailed" PropertyName="Result"/>
     </MSBuild.ExtensionPack.CodeQuality.FxCop>
     <Message Text="CA1 Failed: $(Result)"/>
@@ -27,7 +28,8 @@
     <MSBuild.ExtensionPack.CodeQuality.FxCop TaskAction="Analyse"
                                              Rules="@(FxCopRules)"
                                              Files="@(FilesToFxCop)"
-                                             OutputFile="$(FxCopOutputFile)">
+                                             OutputFile="$(FxCopOutputFile)"
+                                               FxCopPath ="$(FxCopToolPath)">
       <Output TaskParameter="AnalysisFailed" PropertyName="Result"/>
       <Output TaskParameter="OutputText" PropertyName="Text"/>
     </MSBuild.ExtensionPack.CodeQuality.FxCop>

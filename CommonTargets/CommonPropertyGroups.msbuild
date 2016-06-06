@@ -64,6 +64,8 @@
 
     <!-- FxCop -->
     <!-- The FxCop report name and location -->
+    <FxCopToolPath>$(RootPath)\BuildTools\Microsoft Fxcop 10.0\FxCopCmd.exe</FxCopToolPath>
+    
     <FxCopOutputFile>$(BuildArtifacts)\FxCop-Output.xml</FxCopOutputFile>
 
     <HelpProjectFile>$(RootPath)\CommonTargets\SHFBDocumentation.shfbproj</HelpProjectFile>

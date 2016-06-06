@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="E:\MsBuildPOC\UnitTests\bin\Debug\UnitTests.dll" total="5" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2016-06-01" time="16:02:27">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.5485" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="E:\MsBuildPOC\CIUsingMSBuildPOC\BuildTools\opencover.4.6.519" machine-name="RMM-LT-592" user="faiyaz.ganihar" user-domain="CORP" />
+  <culture-info current-culture="en-IN" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="E:\MsBuildPOC\UnitTests\bin\Debug\UnitTests.dll" executed="True" result="Success" success="True" time="0.838" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="GitTasks" executed="True" result="Success" success="True" time="0.829" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="0.828" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="CloneTests" executed="True" result="Success" success="True" time="0.827" asserts="0">
+                <results>
+                  <test-case name="GitTasks.Tests.CloneTests.CloneRepository" executed="True" result="Success" success="True" time="0.732" asserts="1" />
+                  <test-case name="GitTasks.Tests.CloneTests.CloneRepositoryCheckoutBranch" executed="True" result="Success" success="True" time="0.011" asserts="0" />
+                  <test-case name="GitTasks.Tests.CloneTests.ShouldLogErrorWhenExceptionErrors" executed="True" result="Success" success="True" time="0.054" asserts="0" />
+                  <test-case name="GitTasks.Tests.CloneTests.ShouldReturnFalseWhenExceptionOccurs" executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                  <test-case name="GitTasks.Tests.CloneTests.ShouldReturnTrueWhenCalled" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
