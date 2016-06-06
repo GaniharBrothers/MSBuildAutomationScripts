@@ -10,7 +10,8 @@
 
     
 
-    <CallTarget Targets="CreateFolder" Condition="!Exists('$(ZipOutPutLocation)')" />
+    <CallTarget Targets="CreateOutPutFolder" Condition="!Exists('$(ZipOutPutLocation)')" />
+    <CallTarget Targets="CreateZipFolder" Condition="!Exists('$(SourceFilesToZip)')" />
 
     <Copy SourceFiles="@(BuildFilesToCopy)" DestinationFolder="$(SourceFilesToZip)" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="true" ></Copy>
 
@@ -20,11 +21,17 @@
     
   </Target>
 
-  <Target Name="CreateFolder">
+  <Target Name="CreateZipFolder">
+    <MakeDir
+        Directories="$(SourceFilesToZip)"/>
+  </Target>
+
+
+  <Target Name="CreateOutPutFolder">
     <MakeDir
         Directories="$(ZipOutPutLocation)"/>
   </Target>
-
+  
   <Target Name="RemoveFolder">
     <RemoveDir  Directories="$(SourceFilesToZip);" />
   </Target>
