@@ -72,6 +72,6 @@
 
   </PropertyGroup>
 
-  <Import Project="$(RootPath)\..\RepoSpecificProperties.msbuild" />
+  <Import Project="$(RootPath)\RepoSpecificProperties.msbuild" />
   
 </Project>

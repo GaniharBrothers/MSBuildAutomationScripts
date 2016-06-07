@@ -15,7 +15,7 @@
     <MSBuild.ExtensionPack.CodeQuality.NUnit
       Assemblies="@(AssemblyToTest)"
       ToolPath="$(ToolsBasePath)\NUnit-2.6.4\NUnit-2.6.4\bin"
-      OutputXmlFile="$(RootPath)\$(NUnitOuputFile)"
+      OutputXmlFile="$(NUnitOuputFile)"
       ContinueOnError="false"
      >
     </MSBuild.ExtensionPack.CodeQuality.NUnit>
