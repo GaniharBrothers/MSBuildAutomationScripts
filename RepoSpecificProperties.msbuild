@@ -4,19 +4,19 @@
 
   <PropertyGroup>
     <!--Source code against which the CI build is triggered-->
-    <SrcBasePath>$(RootPath)\..\Hyper-V.WebAPI</SrcBasePath>
+    <SrcBasePath>$(RootPath)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI</SrcBasePath>
 
     <!--Zip location and name for ultimate deployable unit-->
-    <ZipSourcePath>$(RootPath)\..\Hyper-V.WebAPI\bin</ZipSourcePath>
+    <ZipSourcePath>$(RootPath)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI\bin</ZipSourcePath>
     <DeployableUnitZipName>$(ZipOutPutLocation)\Hyper-V.WebAPI.zip</DeployableUnitZipName>
 
-    <AssembliesForCoverageReport>Continuum.Patching.Assessment.UnitTesting.dll</AssembliesForCoverageReport>
+    <AssembliesForCoverageReport>Hyper-V.WebAPI.Test.dll</AssembliesForCoverageReport>
 
 
   </PropertyGroup>
   
   <ItemGroup>
-    <SolutionsToBuild Include="$(MSBuildProjectDirectory)\..\rmm-virtualization-hyperv-webapi.sln" />
+    <SolutionsToBuild Include="$(MSBuildProjectDirectory)\..\rmm-virtualization-hyperv-webapi\rmm-virtualization-hyperv-webapi.sln" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,12 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <DependencyDirectories Include="$(RootPath)\..\Hyper-V.WebAPI\bin"/>
+    <DependencyDirectories Include="$(RootPath)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI\bin"/>
   </ItemGroup>
 
 
   <ItemGroup>
-    <FilesToFxCop Include="$(MSBuildProjectDirectory)\..\Hyper-V.WebAPI\bin\Hyper-V.WebAPI.dll"/>
+    <FilesToFxCop Include="$(MSBuildProjectDirectory)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI\bin\Hyper-V.WebAPI.dll"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -37,14 +37,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AssemblyToTest Include="$(MSBuildProjectDirectory)\..\Hyper-V.WebAPI.Test\bin\Release\Hyper-V.WebAPI.Test.dll">
+    <AssemblyToTest Include="$(MSBuildProjectDirectory)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI.Test\bin\Release\Hyper-V.WebAPI.Test.dll">
       <TestAssembly>Hyper-V.WebAPI.Test.dll</TestAssembly>
     </AssemblyToTest>
   </ItemGroup>
      
   <PropertyGroup>
     <DocumentationSources>
-      <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\rmm-virtualization-hyperv-webapi.sln" />
+      <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\rmm-virtualization-hyperv-webapi\rmm-virtualization-hyperv-webapi.sln" />
     </DocumentationSources>
   </PropertyGroup>
 

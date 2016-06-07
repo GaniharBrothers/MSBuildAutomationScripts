@@ -16,9 +16,6 @@
     <!--Common msbuild target location for each CI step-->
     <CommonLocation>$(MSBuildProjectDirectory)\CommonTargets</CommonLocation>
 
-    <DocumentationSources>
-      <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\GitTasks\GitTasks.csproj" />
-    </DocumentationSources>
     
     <BuildArtifacts>$(RootPath)\..\BuildArtifacts</BuildArtifacts>
     
