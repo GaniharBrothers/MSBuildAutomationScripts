@@ -13,11 +13,11 @@
     <CallTarget Targets="BundleDeployableUnit">
     </CallTarget>
 
-    <CallTarget Targets="FxCop">
+    <!--<CallTarget Targets="FxCop">
     </CallTarget>
     
     <CallTarget Targets="StyleCop">
-    </CallTarget>
+    </CallTarget>-->
     
     <CallTarget Targets="UnitTest">
     </CallTarget>
