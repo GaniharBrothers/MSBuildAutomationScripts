@@ -2,7 +2,7 @@
 
 <Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
-  <UsingTask AssemblyFile="$(ToolsBasePath)\StyleCop.MSBuild.4.7.54.0\tools\StyleCop.dll"
+  <UsingTask AssemblyFile="C:\Program Files (x86)\StyleCop 4.7\StyleCop.dll"
              TaskName="Microsoft.StyleCop.StyleCopTask"
                ></UsingTask>
 
