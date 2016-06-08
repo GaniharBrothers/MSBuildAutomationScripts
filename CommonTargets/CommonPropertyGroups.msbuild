@@ -30,7 +30,7 @@
 
     <!-- OpenCover -->
     <!-- The tools path for OpenCover -->
-    <OpenCoverPath>$(ToolsBasePath)\OpenCover.4.6.519</OpenCoverPath>
+    <OpenCoverPath>E:\bin\UnitTest\opencover.4.5.3427</OpenCoverPath>
     <ReportGeneratorPath>$(ToolsBasePath)\ReportGenerator.2.4.5.0\tools</ReportGeneratorPath>
     <!-- OpenCover report name and location -->
     <OpenCoverOuputFile>$(BuildArtifacts)\UnitTestCoverage-Output.xml</OpenCoverOuputFile>
