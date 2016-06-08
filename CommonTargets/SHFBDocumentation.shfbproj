@@ -20,7 +20,7 @@
     <!--Help file will be generated for following source file-->
     
 
-    <SHFBROOT>$(MSBuildProjectDirectory)\..\BuildTools\Sandcastle Help File Builder\</SHFBROOT>
+    <SHFBROOT>C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder</SHFBROOT>
   </PropertyGroup>
 
   <Import Project="$(MSBuildProjectDirectory)\..\RepoSpecificProperties.msbuild" />
