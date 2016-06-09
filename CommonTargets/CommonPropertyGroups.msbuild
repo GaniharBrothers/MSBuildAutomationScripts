@@ -17,7 +17,8 @@
     <CommonLocation>$(MSBuildProjectDirectory)\CommonTargets</CommonLocation>
 
     
-    <BuildArtifacts>$(RootPath)\..\BuildArtifacts</BuildArtifacts>
+
+    <BuildArtifacts>$(RootPath)\..\$(WorkSpaceRootFolderName)\BuildArtifacts</BuildArtifacts>
     
     <!--Build Bundle configurations-->
     <SourceFilesToZip>$(BuildArtifacts)\ZipStaging</SourceFilesToZip>
@@ -27,10 +28,11 @@
     
     <!--Tools used in CI-->
     <ToolsBasePath>$(RootPath)\BuildTools</ToolsBasePath>
+    
 
     <!-- OpenCover -->
     <!-- The tools path for OpenCover -->
-    <OpenCoverPath>E:\bin\UnitTest\opencover.4.5.3427</OpenCoverPath>
+    <OpenCoverPath>$(ToolsBasePath)\opencover.4.5.3427</OpenCoverPath>
     <ReportGeneratorPath>$(ToolsBasePath)\ReportGenerator.2.4.5.0\tools</ReportGeneratorPath>
     <!-- OpenCover report name and location -->
     <OpenCoverOuputFile>$(BuildArtifacts)\UnitTestCoverage-Output.xml</OpenCoverOuputFile>
@@ -67,8 +69,9 @@
 
     <HelpProjectFile>$(RootPath)\CommonTargets\SHFBDocumentation.shfbproj</HelpProjectFile>
 
-  </PropertyGroup>
+  
+</PropertyGroup>
 
-  <Import Project="$(RootPath)\RepoSpecificProperties.msbuild" />
+  <Import Project="$(RootPath)\..\$(WorkSpaceRootFolderName)\RepoSpecificProperties.msbuild" />
   
 </Project>

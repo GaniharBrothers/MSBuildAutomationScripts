@@ -2,7 +2,8 @@
 
 <Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
-  <UsingTask AssemblyFile="C:\Program Files (x86)\MSBuild\ExtensionPack\4.0\MSBuild.ExtensionPack.dll" TaskName="MSBuild.ExtensionPack.Compression.Zip"/>
+  <UsingTask AssemblyFile="$(MsBuildExtensionsPath)\MSBuild.ExtensionPack.dll"
+             TaskName="MSBuild.ExtensionPack.Compression.Zip"/>
 
 
   <Target Name="BundleDeployableUnit">
@@ -12,7 +13,7 @@
     <CallTarget Targets="CreateOutPutFolder" Condition="!Exists('$(ZipOutPutLocation)')" />
     <CallTarget Targets="CreateZipFolder" Condition="!Exists('$(SourceFilesToZip)')" />
 
-    <Copy SourceFiles="@(BuildFilesToCopy)" DestinationFolder="$(SourceFilesToZip)" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="true" ></Copy>
+    <Copy SourceFiles="@(BuildFilesToCopy)" DestinationFolder="$(SourceFilesToZip)"  ></Copy>
 
     <MSBuild.ExtensionPack.Compression.Zip TaskAction="Create" CompressPath="$(SourceFilesToZip)" ZipFileName="$(DeployableUnitZipName)" RemoveRoot="$(SourceFilesToZip)" />
 

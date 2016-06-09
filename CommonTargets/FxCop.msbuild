@@ -4,7 +4,7 @@
 
 
 
-  <UsingTask AssemblyFile="C:\Program Files (x86)\MSBuild\ExtensionPack\4.0\MSBuild.ExtensionPack.dll"
+  <UsingTask AssemblyFile="$(MsBuildExtensionsPath)\MSBuild.ExtensionPack.dll"
              TaskName="MSBuild.ExtensionPack.CodeQuality.FxCop"
                ></UsingTask>
 

@@ -3,20 +3,29 @@
 <Project DefaultTargets="" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
   <PropertyGroup>
+    
     <!--Source code against which the CI build is triggered-->
-    <SrcBasePath>$(RootPath)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI</SrcBasePath>
-
+    <SrcBasePath>$(RootPath)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI</SrcBasePath>
+    
+    <WorkSpaceRootFolderName></WorkSpaceRootFolderName>
+    
     <!--Zip location and name for ultimate deployable unit-->
-    <ZipSourcePath>$(RootPath)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI\bin</ZipSourcePath>
+    <ZipSourcePath>$(RootPath)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI\bin</ZipSourcePath>
     <DeployableUnitZipName>$(ZipOutPutLocation)\Hyper-V.WebAPI.zip</DeployableUnitZipName>
 
     <AssembliesForCoverageReport>Hyper-V.WebAPI.Test.dll</AssembliesForCoverageReport>
 
+    <RepoSpecificPropertyFilePath></RepoSpecificPropertyFilePath>
 
+    <!--<MsBuildExtensionsPath>$(ToolsBasePath)\MSBuild.Extension.Pack.1.8.0\tools\net40</MsBuildExtensionsPath>-->
+    <MsBuildExtensionsPath>C:\Program Files (x86)\MSBuild\ExtensionPack\4.0</MsBuildExtensionsPath>
+    
+
+    <LocalBuild>false</LocalBuild>
   </PropertyGroup>
   
   <ItemGroup>
-    <SolutionsToBuild Include="$(MSBuildProjectDirectory)\..\rmm-virtualization-hyperv-webapi\rmm-virtualization-hyperv-webapi.sln" />
+    <SolutionsToBuild Include="$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\rmm-virtualization-hyperv-webapi.sln" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,12 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <DependencyDirectories Include="$(RootPath)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI\bin"/>
+    <DependencyDirectories Include="$(RootPath)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI\bin"/>
   </ItemGroup>
 
 
   <ItemGroup>
-    <FilesToFxCop Include="$(MSBuildProjectDirectory)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI\bin\Hyper-V.WebAPI.dll"/>
+    <FilesToFxCop Include="$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI\bin\Hyper-V.WebAPI.dll"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -37,14 +46,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AssemblyToTest Include="$(MSBuildProjectDirectory)\..\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI.Test\bin\Release\Hyper-V.WebAPI.Test.dll">
+    <AssemblyToTest Include="$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI.Test\bin\Release\Hyper-V.WebAPI.Test.dll">
       <TestAssembly>Hyper-V.WebAPI.Test.dll</TestAssembly>
     </AssemblyToTest>
   </ItemGroup>
      
   <PropertyGroup>
     <DocumentationSources>
-      <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\rmm-virtualization-hyperv-webapi\rmm-virtualization-hyperv-webapi.sln" />
+      <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\$(WorkSpaceRootFolderName)\rmm-virtualization-hyperv-webapi.sln" />
     </DocumentationSources>
   </PropertyGroup>
 
