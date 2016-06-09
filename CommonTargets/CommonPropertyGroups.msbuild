@@ -49,7 +49,10 @@
 
     <!-- StyleCop -->
     <!-- The tools path for StyleCop -->
+    <StyleCopToolPath>C:\Program Files (x86)\StyleCop 4.7\StyleCop.dll</StyleCopToolPath>
+    <!--<StyleCopToolPath>$(ToolsBasePath)\StyleCop.MSBuild.4.7.54.0\tools\StyleCop.dll</StyleCopToolPath>-->
     <StyleCopPath>$(ToolsBasePath)\StyleCop.4.7.33.0\lib\net35\</StyleCopPath>
+    
     <!-- The StyleCop report name and location -->
     <StyleCopOutputFile>$(BuildArtifacts)\StyleCop-Output.xml</StyleCopOutputFile>
     <!-- The StyleCop max violations count -->
