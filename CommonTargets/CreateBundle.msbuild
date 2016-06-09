@@ -17,7 +17,7 @@
 
     <MSBuild.ExtensionPack.Compression.Zip TaskAction="Create" CompressPath="$(SourceFilesToZip)" ZipFileName="$(DeployableUnitZipName)" RemoveRoot="$(SourceFilesToZip)" />
 
-    <CallTarget Targets="RemoveFolder" Condition="Exists('$(SourceFilesToZip)')" />
+    <!--<CallTarget Targets="RemoveFolder" Condition="Exists('$(SourceFilesToZip)')" />-->
     
   </Target>
 
