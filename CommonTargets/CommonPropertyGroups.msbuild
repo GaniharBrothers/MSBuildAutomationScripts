@@ -18,7 +18,7 @@
 
     
 
-    <BuildArtifacts>$(RootPath)\..\$(WorkSpaceRootFolderName)\BuildArtifacts</BuildArtifacts>
+    <BuildArtifacts>$(RootPath)\..\..\$(WorkSpaceRootFolderName)\BuildArtifacts</BuildArtifacts>
     
     <!--Build Bundle configurations-->
     <SourceFilesToZip>$(BuildArtifacts)\ZipStaging</SourceFilesToZip>
