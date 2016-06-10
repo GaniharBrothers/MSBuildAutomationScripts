@@ -16,9 +16,9 @@
     <!--Common msbuild target location for each CI step-->
     <CommonLocation>$(MSBuildProjectDirectory)\CommonTargets</CommonLocation>
 
-    
 
-    <BuildArtifacts>$(RootPath)\..\..\$(WorkSpaceRootFolderName)\BuildArtifacts</BuildArtifacts>
+
+    <BuildArtifacts>$(RootPath)\..\$(WorkSpaceRootFolderName)\BuildArtifacts</BuildArtifacts>
     
     <!--Build Bundle configurations-->
     <SourceFilesToZip>$(BuildArtifacts)\ZipStaging</SourceFilesToZip>
