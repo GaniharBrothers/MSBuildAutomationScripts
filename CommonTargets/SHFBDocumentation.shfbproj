@@ -14,7 +14,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
-    <OutputPath>$(MSBuildProjectDirectory)\..\..\..\$(WorkSpaceRootFolderName)\BuildArtifacts\HelpDocumentation\</OutputPath>
+    <OutputPath>$(MSBuildProjectDirectory)\..\..\$(WorkSpaceRootFolderName)\BuildArtifacts\HelpDocumentation\</OutputPath>
     <HtmlHelpName>Documentation</HtmlHelpName>
     <Language>en-US</Language>
     <!--Help file will be generated for following source file-->
