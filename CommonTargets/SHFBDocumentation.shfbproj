@@ -23,7 +23,7 @@
     <SHFBROOT>C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder</SHFBROOT>
   </PropertyGroup>
 
-  <Import Project="$(MSBuildProjectDirectory)\..\RepoSpecificProperties.msbuild" />
+  <Import Project="$(MSBuildProjectDirectory)\..\..\$(WorkSpaceRootFolderName)\RepoSpecificProperties.msbuild" />
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
   
