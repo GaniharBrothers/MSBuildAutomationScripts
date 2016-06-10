@@ -1,15 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>  
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
-
+  <PropertyGroup>
+    <CoberturaXml>OpenCover.Cobertura.xml</CoberturaXml>
+  </PropertyGroup>
 
   <!-- The Code Coverage Target, checks code coverage using opencover and NUnit, the 
 			task generates both a coverage report and the test report -->
   <Target Name="CodeCoverage">
 
 
-    <!-- Define test assembly names in this ItemGroup.  Because ItemGroups are 'cumulative', the first line removes any existing items.--><!--
+    <!-- Define test assembly names in this ItemGroup.  Because ItemGroups are 'cumulative', the first line removes any existing items.-->
+    <!--
     <ItemGroup>
       <AssemblyToTest Remove="@(AssemblyToTest)" />
       <AssemblyToTest Include="C:\Users\faiyaz.ganihar\Downloads\MSBuildGitTasks-master\MSBuildGitTasks-master\UnitTests\bin\Debug\UnitTests.dll">
@@ -21,6 +24,9 @@
 
     <Exec Command="&quot;$(OpenCoverPath)\OpenCover.Console.exe &quot; -register:user -target:&quot;$(NUnitPath)\nunit-console.exe&quot; -targetargs:&quot;/noshadow @(AssemblyToTest)&quot; -filter:+[*]* -output:&quot;$(OpenCoverOuputFile)&quot;" />
 
+    <Exec WorkingDirectory="$(BuildArtifacts)"
+       Command="$(ConverterPath)\OpenCoverToCoberturaConverter.exe &quot;-input:$(OpenCoverOuputFile)&quot; &quot;-output:$(OpenCoverCoberturaOuputFile)&quot; &quot;-sources:$(BuildArtifacts)&quot; " />
+
     <Delete Files="TestResult.xml"></Delete>
 
     <MakeDir Directories="$(OpenCoverReportPath)"/>
@@ -30,6 +36,8 @@
     <Message Text="CodeCoverage finished" />
 
   </Target>
+
+
 
 
 </Project>
