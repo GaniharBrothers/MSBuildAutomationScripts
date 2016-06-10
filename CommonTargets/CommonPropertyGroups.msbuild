@@ -34,7 +34,7 @@
     <!-- The tools path for OpenCover -->
     <OpenCoverPath>$(ToolsBasePath)\opencover.4.5.3427</OpenCoverPath>
     <ReportGeneratorPath>$(ToolsBasePath)\ReportGenerator.2.4.5.0\tools</ReportGeneratorPath>
-    <ConverterPath>$(ToolsBasePath)\OpenCoverToCoberturaConverter.0.2.4.0\tools</ConverterPath>
+    <ConverterPath>$(ToolsBasePath)\opencovertocoberturaconverter.0.2.4\tools</ConverterPath>
       <!-- OpenCover report name and location -->
     <OpenCoverOuputFile>$(BuildArtifacts)\UnitTestCoverage-Output.xml</OpenCoverOuputFile>
     <OpenCoverCoberturaOuputFile>OpenCoverCobertura-Output.xml</OpenCoverCoberturaOuputFile>

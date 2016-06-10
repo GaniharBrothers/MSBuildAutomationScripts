@@ -25,7 +25,7 @@
     <Exec Command="&quot;$(OpenCoverPath)\OpenCover.Console.exe &quot; -register:user -target:&quot;$(NUnitPath)\nunit-console.exe&quot; -targetargs:&quot;/noshadow @(AssemblyToTest)&quot; -filter:+[*]* -output:&quot;$(OpenCoverOuputFile)&quot;" />
 
     <Exec WorkingDirectory="$(BuildArtifacts)"
-       Command="$(ConverterPath)\OpenCoverToCoberturaConverter.exe &quot;-input:$(OpenCoverOuputFile)&quot; &quot;-output:$(OpenCoverCoberturaOuputFile)&quot; &quot;-sources:$(BuildArtifacts)&quot; " />
+       Command="&quot;$(ConverterPath)\OpenCoverToCoberturaConverter.exe&quot; &quot;-input:$(OpenCoverOuputFile)&quot; &quot;-output:$(OpenCoverCoberturaOuputFile)&quot; &quot;-sources:$(BuildArtifacts)&quot; " />
 
     <Delete Files="TestResult.xml"></Delete>
 
