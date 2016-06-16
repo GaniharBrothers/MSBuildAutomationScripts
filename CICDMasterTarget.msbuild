@@ -25,24 +25,38 @@
     <CallTarget Targets="CodeCoverage">
     </CallTarget>
         
-    <!--<CallTarget Targets="GenerateDocumentation">
-    </CallTarget>-->
+    <CallTarget Targets="GenerateDocumentation">
+    </CallTarget>
     
   </Target>
 
-  <Import Project="$(CommonLocation)\Build.msbuild" />
-
-  <Import Project="$(CommonLocation)\FxCop.msbuild" />
-
-  <Import Project="$(CommonLocation)\StyleCop.msbuild" />
+  <Import Project="$(MSBuildProjectDirectory)\RepoSpecificTargets\Build.msbuild" Condition="'$(OverrideDefaultBuildTarget)' == 'true' and exists('$(MSBuildProjectDirectory)\RepoSpecificTargets\Build.msbuild')" />
   
-  <Import Project="$(CommonLocation)\UnitTest.msbuild" />
+  <Import Project="$(CommonLocation)\Build.msbuild" Condition="'$(OverrideDefaultBuildTarget)' == 'false'" />
+          
+  <Import Project="$(MSBuildProjectDirectory)\RepoSpecificTargets\FxCop.msbuild" Condition="'$(OverrideDefaultFxCopTarget)' == 'true' and exists('$(MSBuildProjectDirectory)\RepoSpecificTargets\FxCop.msbuild')" />
+    
+  <Import Project="$(CommonLocation)\FxCop.msbuild" Condition="'$(OverrideDefaultFxCopTarget)' == 'false'" />
+          
+  <Import Project="$(MSBuildProjectDirectory)\RepoSpecificTargets\StyleCop.msbuild" Condition="'$(OverrideDefaultStyleCopTarget)' == 'true' and exists('$(MSBuildProjectDirectory)\RepoSpecificTargets\StyleCop.msbuild')" />
+  
+  <Import Project="$(CommonLocation)\StyleCop.msbuild" Condition="'$(OverrideDefaultStyleCopTarget)' == 'false'" />
 
-  <Import Project="$(CommonLocation)\CodeCoverage.msbuild" />
+  <Import Project="$(MSBuildProjectDirectory)\RepoSpecificTargets\UnitTest.msbuild" Condition="'$(OverrideDefaultUnitTestTarget)' == 'true' and exists('$(MSBuildProjectDirectory)\RepoSpecificTargets\UnitTest.msbuild')" />
 
-  <Import Project="$(CommonLocation)\CreateBundle.msbuild" />
+  <Import Project="$(CommonLocation)\UnitTest.msbuild" Condition="'$(OverrideDefaultUnitTestTarget)' == 'false'" />
 
-  <Import Project="$(CommonLocation)\GenerateDocumentation.msbuild" />
+  <Import Project="$(MSBuildProjectDirectory)\RepoSpecificTargets\CodeCoverage.msbuild" Condition="'$(OverrideDefaultCodeCoverageTarget)' == 'true' and exists('$(MSBuildProjectDirectory)\RepoSpecificTargets\CodeCoverage.msbuild')" />
+
+  <Import Project="$(CommonLocation)\CodeCoverage.msbuild" Condition="'$(OverrideDefaultCodeCoverageTarget)' == 'false'" />
+
+  <Import Project="$(MSBuildProjectDirectory)\RepoSpecificTargets\CreateBundle.msbuild" Condition="'$(OverrideDefaultCreateBundleTarget)' == 'true' and exists('$(MSBuildProjectDirectory)\RepoSpecificTargets\CreateBundle.msbuild')" />
+
+  <Import Project="$(CommonLocation)\CreateBundle.msbuild" Condition="'$(OverrideDefaultCreateBundleTarget)' == 'false'" />
+
+  <Import Project="$(MSBuildProjectDirectory)\RepoSpecificTargets\GenerateDocumentation.msbuild" Condition="'$(OverrideDefaultGenerateDocumentationTarget)' == 'true' and exists('$(MSBuildProjectDirectory)\RepoSpecificTargets\GenerateDocumentation.msbuild')" />
+
+  <Import Project="$(CommonLocation)\GenerateDocumentation.msbuild" Condition="'$(OverrideDefaultGenerateDocumentationTarget)' == 'false'" />
 
 
 </Project>

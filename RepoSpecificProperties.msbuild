@@ -3,25 +3,31 @@
 <Project DefaultTargets="" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
   <PropertyGroup>
-    
+
     <!--Source code against which the CI build is triggered-->
     <SrcBasePath>$(RootPath)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI</SrcBasePath>
-    
-    <WorkSpaceRootFolderName></WorkSpaceRootFolderName>
-    
+
+
     <!--Zip location and name for ultimate deployable unit-->
     <ZipSourcePath>$(RootPath)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI\bin</ZipSourcePath>
     <DeployableUnitZipName>$(ZipOutPutLocation)\Hyper-V.WebAPI.zip</DeployableUnitZipName>
 
     <AssembliesForCoverageReport>Hyper-V.WebAPI.Test.dll</AssembliesForCoverageReport>
 
-    <RepoSpecificPropertyFilePath></RepoSpecificPropertyFilePath>
+    <MsBuildExtensionsPath>$(ToolsBasePath)\MSBuild.Extension.Pack.1.8.0\tools\net40</MsBuildExtensionsPath>
+    <!--<MsBuildExtensionsPath>C:\Program Files (x86)\MSBuild\ExtensionPack\4.0</MsBuildExtensionsPath>-->
 
-    <!--<MsBuildExtensionsPath>$(ToolsBasePath)\MSBuild.Extension.Pack.1.8.0\tools\net40</MsBuildExtensionsPath>-->
-    <MsBuildExtensionsPath>C:\Program Files (x86)\MSBuild\ExtensionPack\4.0</MsBuildExtensionsPath>
     
+    <!--Flags to indicate if default targets are overriden-->
+    <OverrideDefaultBuildTarget>false</OverrideDefaultBuildTarget>
+    <OverrideDefaultUnitTestTarget>true</OverrideDefaultUnitTestTarget>
+    <OverrideDefaultCodeCoverageTarget>true</OverrideDefaultCodeCoverageTarget>
+    <OverrideDefaultFxCopTarget>false</OverrideDefaultFxCopTarget>
+    <OverrideDefaultStyleCopTarget>false</OverrideDefaultStyleCopTarget>
+    <OverrideDefaultCreateBundleTarget>false</OverrideDefaultCreateBundleTarget>
+    <OverrideDefaultGenerateDocumentationTarget>false</OverrideDefaultGenerateDocumentationTarget>
 
-    <LocalBuild>false</LocalBuild>
+    <TestAssembly>$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI.Test\bin\Debug\Hyper-V.WebAPI.Test.dll</TestAssembly>
   </PropertyGroup>
   
   <ItemGroup>
