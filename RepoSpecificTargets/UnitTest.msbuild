@@ -9,7 +9,7 @@
                Condition="Exists('$(BuildArtifacts)\UnitTestResults')" />
     <MakeDir Directories="$(BuildArtifacts)\UnitTestResults" />
 
-    <Exec Command="$(MsTestCommand)" >
+    <Exec Command="$(MsTestCommand)" ContinueOnError="true" >
       <Output TaskParameter="ExitCode" PropertyName="TestSuccessOrNot"/>
     </Exec>
 
