@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>  
+
+<Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+
+
+  <UsingTask AssemblyFile="$(MsBuildExtensionsPath)\MSBuild.ExtensionPack.dll"
+             TaskName="MSBuild.ExtensionPack.CodeQuality.FxCop"
+               ></UsingTask>
+
+  <Target Name="FxCop">
+    <!-- Call the task using a collection of files and all default rules -->
+    <MSBuild.ExtensionPack.CodeQuality.FxCop TaskAction="Analyse" Files="@(FilesToFxCop)"
+                                             OutputFile="$(FxCopOutputFile)"
+                                             FxCopPath ="$(FxCopToolPath)">
+      <Output TaskParameter="AnalysisFailed" PropertyName="Result"/>
+    </MSBuild.ExtensionPack.CodeQuality.FxCop>
+    <Message Text="CA1 Failed: $(Result)"/>
+    <!--Call the task using a project file-->
+    <!--<MSBuild.ExtensionPack.CodeQuality.FxCop TaskAction="Analyse"
+                                             Project="C:\Users\faiyaz.ganihar\Downloads\MSBuildGitTasks-master\MSBuildGitTasks-master\GitTasks\FxCop.FxCop"
+                                             DependencyDirectories="@(DependencyDirectories)"
+                                             OutputFile="$(FxCopOutputFile)">
+      <Output TaskParameter="AnalysisFailed" PropertyName="Result"/>
+    </MSBuild.ExtensionPack.CodeQuality.FxCop>-->
+    <Message Text="CA2 Failed: $(Result)"/>
+    <!-- Call the task using a collection of files and bespoke rules. We can access the exact failure message using OutputText -->
+    <MSBuild.ExtensionPack.CodeQuality.FxCop TaskAction="Analyse"
+                                             Rules="@(FxCopRules)"
+                                             Files="@(FilesToFxCop)"
+                                             OutputFile="$(FxCopOutputFile)"
+                                               FxCopPath ="$(FxCopToolPath)">
+      <Output TaskParameter="AnalysisFailed" PropertyName="Result"/>
+      <Output TaskParameter="OutputText" PropertyName="Text"/>
+    </MSBuild.ExtensionPack.CodeQuality.FxCop>
+    <Message Text="CA3 Failed: $(Result)"/>
+    <Message Text="Failure Text: $(Text)" Condition="$(Result) == 'true'"/>
+  </Target>
+
+
+
+</Project>

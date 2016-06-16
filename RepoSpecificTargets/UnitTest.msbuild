@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="UnitTest"
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    
+
+  <Target Name="UnitTest">
+
+    <RemoveDir Directories="$(BuildArtifacts)\UnitTestResults"
+               Condition="Exists('$(BuildArtifacts)\UnitTestResults')" />
+    <MakeDir Directories="$(BuildArtifacts)\UnitTestResults" />
+
+    <Exec Command="$(MsTestCommand)" >
+      <Output TaskParameter="ExitCode" PropertyName="TestSuccessOrNot"/>
+    </Exec>
+
+    <!--<Exec Command="$(MsTestCommand)"
+          ContinueOnError="false" />-->
+  </Target>
+  
+
+
+</Project>

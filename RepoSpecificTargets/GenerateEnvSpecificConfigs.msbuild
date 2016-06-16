@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>  
+
+<Project DefaultTargets="RenameFile" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <UsingTask AssemblyFile="$(ToolsBasePath)\MSBuild.Extension.Pack.1.8.0\tools\net40\MSBuild.ExtensionPack.dll"
+						 TaskName="MSBuild.ExtensionPack.Compression.Zip"/>
+
+
+  <Target Name="RenameFile">
+    <Move  SourceFiles="OriginalFile.txt" DestinationFiles="TargetFile.txt" />
+  </Target>
+
+</Project>
