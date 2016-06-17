@@ -3,7 +3,7 @@
 <Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
   <PropertyGroup>
-        <TestAssembly>$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI.Test\bin\Debug\Hyper-V.WebAPI.Test.dll</TestAssembly>
+        <TestAssembly>$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI.Test\bin\Release\Hyper-V.WebAPI.Test.dll</TestAssembly>
   </PropertyGroup>
 
   <!-- The Code Coverage Target, checks code coverage using opencover and NUnit, the 
