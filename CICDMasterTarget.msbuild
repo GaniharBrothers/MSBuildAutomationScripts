@@ -22,11 +22,11 @@
     <CallTarget Targets="UnitTest">
     </CallTarget>
         
-    <CallTarget Targets="CodeCoverage">
+    <!--<CallTarget Targets="CodeCoverage">
     </CallTarget>
         
     <CallTarget Targets="GenerateDocumentation">
-    </CallTarget>
+    </CallTarget>-->
     
   </Target>
 
