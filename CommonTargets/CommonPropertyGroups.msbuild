@@ -37,7 +37,7 @@
     <ConverterPath>$(ToolsBasePath)\opencovertocoberturaconverter.0.2.4\tools</ConverterPath>
       <!-- OpenCover report name and location -->
     <OpenCoverOuputFile>$(BuildArtifacts)\UnitTestCoverage-Output.xml</OpenCoverOuputFile>
-    <OpenCoverCoberturaOuputFile>OpenCoverCobertura-Output.xml</OpenCoverCoberturaOuputFile>
+    <OpenCoverCoberturaOuputFile>$(BuildArtifacts)\OpenCoverCobertura-Output.xml</OpenCoverCoberturaOuputFile>
     <OpenCoverTmpOuputFile>$(BuildArtifacts)\coverage-tmp-output.xml</OpenCoverTmpOuputFile>
     <OpenCoverReportPath>$(BuildArtifacts)\UnitTestCoverageReport</OpenCoverReportPath>
 
