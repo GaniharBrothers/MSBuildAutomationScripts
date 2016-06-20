@@ -3,7 +3,7 @@
 <Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
   <PropertyGroup>
-        <TestAssembly>\&quot;E:\Program Files (x86)\Jenkins\jobs\dev_rmm-virtualization-hyperv-webapi_POC\workspace\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI.Test\bin\Release\Hyper-V.WebAPI.Test.dll\&quot;</TestAssembly>
+        <TestAssembly>Hyper-V.WebAPI.Test.dll</TestAssembly>
   </PropertyGroup>
   <!-- The Code Coverage Target, checks code coverage using opencover and NUnit, the 
 			task generates both a coverage report and the test report -->
@@ -14,7 +14,7 @@
 <!--OpenCover.Console.exe -register:user "-target:C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" 
           -targetargs:"/Platform:x64 /InIsolation \"E:\Program Files (x86)\Jenkins\jobs\dev_rmm-virtualization-hyperv-webapi_POC\workspace\rmm-virtualization-hyperv-webapi\Hyper-V.WebAPI.Test\bin\Release\Hyper-V.WebAPI.Test.dll\"" -output:TestAndCover.xml -filter:"+[*]* -[DataAccess*]* -[Model*]* -[log4net*]*"-->
 <Message Text="CodeCoverage" />
-    <Exec WorkingDirectory="$(BuildArtifacts)"
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI.Test\bin\Release"
           Command="$(OpenCoverPath)/OpenCover.Console.exe -register:user &quot;-target:C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe&quot;  -targetargs:&quot;/Platform:x64 /InIsolation $(TestAssembly)&quot; -output:$(OpenCoverOuputFile)  -filter:&quot;+[*]* -[DataAccess*]* -[Model*]* -[log4net*]*&quot;"/>
     
     <Exec WorkingDirectory="$(BuildArtifacts)"
