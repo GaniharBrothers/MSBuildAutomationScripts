@@ -7,10 +7,9 @@
   </PropertyGroup>
   <Target Name="UnitTest">
 
-    <RemoveDir Directories="$(BuildArtifacts)\UnitTestResults"
-               Condition="Exists('$(BuildArtifacts)\UnitTestResults')" />
-    <MakeDir Directories="$(BuildArtifacts)\UnitTestResults" />
-
+    <RemoveDir Directories="$(BuildArtifacts)\TestResults"
+               Condition="Exists('$(BuildArtifacts)\TestResults')" />
+    
     <Exec WorkingDirectory="$(BuildArtifacts)" Command="$(MsTestCommand)" ContinueOnError="true" >
       <Output TaskParameter="ExitCode" PropertyName="TestSuccessOrNot"/>
     </Exec>
