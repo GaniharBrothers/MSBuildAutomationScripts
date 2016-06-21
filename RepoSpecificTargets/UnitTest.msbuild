@@ -3,7 +3,7 @@
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <MsTestCommand>$(MsTestExePath) /testcontainer:&quot;$(TestAssemblies)&quot; /resultsfile:&quot;$(MsTestResultPath)&quot;</MsTestCommand>
+    <MsTestCommand>$(MsTestExePath) $(TestAssemblies) /Settings:&quot;$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\UnitTesting\x64.runsettings&quot; /InIsolation /Logger:trx</MsTestCommand>
   </PropertyGroup>
   <Target Name="UnitTest">
 
@@ -11,7 +11,7 @@
                Condition="Exists('$(BuildArtifacts)\UnitTestResults')" />
     <MakeDir Directories="$(BuildArtifacts)\UnitTestResults" />
 
-    <Exec Command="$(MsTestCommand)" ContinueOnError="true" >
+    <Exec WorkingDirectory="$(BuildArtifacts)\UnitTestResults" Command="$(MsTestCommand)" ContinueOnError="true" >
       <Output TaskParameter="ExitCode" PropertyName="TestSuccessOrNot"/>
     </Exec>
 
