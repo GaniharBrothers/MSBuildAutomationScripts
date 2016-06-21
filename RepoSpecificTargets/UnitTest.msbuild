@@ -11,7 +11,7 @@
                Condition="Exists('$(BuildArtifacts)\UnitTestResults')" />
     <MakeDir Directories="$(BuildArtifacts)\UnitTestResults" />
 
-    <Exec WorkingDirectory="$(BuildArtifacts)\UnitTestResults" Command="$(MsTestCommand)" ContinueOnError="true" >
+    <Exec WorkingDirectory="$(BuildArtifacts)" Command="$(MsTestCommand)" ContinueOnError="true" >
       <Output TaskParameter="ExitCode" PropertyName="TestSuccessOrNot"/>
     </Exec>
 
