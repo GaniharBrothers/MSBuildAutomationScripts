@@ -3,7 +3,7 @@
          xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <MsTestCommand>$(MsTestExePath) $(TestAssemblies) /Settings:&quot;$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\UnitTesting\x64.runsettings&quot; /InIsolation /Logger:trx</MsTestCommand>
+    <MsTestCommand>$(MsTestExePath) &quot;$(TestAssemblies)&quot; /Settings:&quot;$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\UnitTesting\x64.runsettings&quot; /InIsolation /Logger:trx</MsTestCommand>
   </PropertyGroup>
   <Target Name="UnitTest">
 
