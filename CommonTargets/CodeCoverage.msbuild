@@ -8,7 +8,7 @@
 
     <Message Text="CodeCoverage" />
     
-    <Exec WorkingDirectory="$(WorkingDirectory)"  Command="&quot;$(MSBuildProjectDirectory)\BuildTools\opencover.4.5.3427\OpenCover.Console.exe&quot; -register:user -target:$(MsTestExePath)  -targetargs:&quot;/Platform:x64 /InIsolation &quot;$(TestAssemblies)&quot;&quot; -output:&quot;$(OpenCoverOuputFile)&quot;  -filter:&quot;+[*]* -[DataAccess*]* -[Model*]* -[log4net*]*&quot;"/>
+    <Exec WorkingDirectory="$(WorkingDirectory)"  Command="&quot;$(MSBuildProjectDirectory)\BuildTools\opencover.4.5.3427\OpenCover.Console.exe&quot; -register:user -target:$(MsTestExePath)  &quot;-targetargs:/Platform:x64 /InIsolation \&quot;$(TestAssemblies)\&quot; &quot; -output:&quot;$(OpenCoverOuputFile)&quot;  -filter:&quot;+[*]* -[DataAccess*]* -[Model*]* -[log4net*]*&quot;"/>
     
     <Exec WorkingDirectory="$(WorkingDirectory)"  Command="&quot;$(ConverterPath)\OpenCoverToCoberturaConverter.exe&quot; &quot;-input:$(OpenCoverOuputFile)&quot; &quot;-output:$(OpenCoverCoberturaOuputFile)&quot; &quot;-sources:$(BuildArtifacts)&quot; " />
 
