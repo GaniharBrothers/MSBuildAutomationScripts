@@ -1,23 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="UnitTest"
-         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>  
 
-  <PropertyGroup>
-    <MsTestCommand>$(MsTestExePath) &quot;$(TestAssemblies)&quot; $(TestSettings) /InIsolation /Logger:trx</MsTestCommand>
-  </PropertyGroup>
-  <Target Name="UnitTest">
+<Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
-    <RemoveDir Directories="$(BuildArtifacts)\TestResults"
-               Condition="Exists('$(BuildArtifacts)\TestResults')" />
-    
-    <Exec WorkingDirectory="$(BuildArtifacts)" Command="$(MsTestCommand)" ContinueOnError="true" >
-      <Output TaskParameter="ExitCode" PropertyName="TestSuccessOrNot"/>
-    </Exec>
 
-    <!--<Exec Command="$(MsTestCommand)"
-          ContinueOnError="false" />-->
+  <!-- Include the MSBuild Extension Pack NUnit Task -->
+  <UsingTask AssemblyFile="$(MsBuildExtensionsPath)\MSBuild.ExtensionPack.dll"
+						 TaskName="MSBuild.ExtensionPack.CodeQuality.NUnit"/>
+
+  <!-- The Test Target, runs unit tests on the compiled source code via NUnit -->
+  <Target Name="UnitTest" >
+
+
+
+    <MSBuild.ExtensionPack.CodeQuality.NUnit
+      Assemblies="@(AssemblyToTest)"
+      ToolPath="$(ToolsBasePath)\NUnit-2.6.4\NUnit-2.6.4\bin"
+      OutputXmlFile="$(NUnitOuputFile)"
+      ContinueOnError="false"
+     >
+    </MSBuild.ExtensionPack.CodeQuality.NUnit>
   </Target>
-  
-
 
 </Project>

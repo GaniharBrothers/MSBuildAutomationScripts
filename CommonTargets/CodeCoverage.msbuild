@@ -2,30 +2,15 @@
 
 <Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
-  <PropertyGroup>
-    <CoberturaXml>OpenCover.Cobertura.xml</CoberturaXml>
-  </PropertyGroup>
-
   <!-- The Code Coverage Target, checks code coverage using opencover and NUnit, the 
 			task generates both a coverage report and the test report -->
   <Target Name="CodeCoverage">
 
-
-    <!-- Define test assembly names in this ItemGroup.  Because ItemGroups are 'cumulative', the first line removes any existing items.-->
-    <!--
-    <ItemGroup>
-      <AssemblyToTest Remove="@(AssemblyToTest)" />
-      <AssemblyToTest Include="C:\Users\faiyaz.ganihar\Downloads\MSBuildGitTasks-master\MSBuildGitTasks-master\UnitTests\bin\Debug\UnitTests.dll">
-        <TestAssembly>UnitTests.dll</TestAssembly>
-      </AssemblyToTest>
-    </ItemGroup>-->
-
     <Message Text="CodeCoverage" />
-
-    <Exec Command="&quot;$(OpenCoverPath)\OpenCover.Console.exe &quot; -register:user -target:&quot;$(NUnitPath)\nunit-console.exe&quot; -targetargs:&quot;/noshadow @(AssemblyToTest)&quot; -filter:+[*]* -output:&quot;$(OpenCoverOuputFile)&quot;" />
-
-    <Exec WorkingDirectory="$(BuildArtifacts)"
-       Command="&quot;$(ConverterPath)\OpenCoverToCoberturaConverter.exe&quot; &quot;-input:$(OpenCoverOuputFile)&quot; &quot;-output:$(OpenCoverCoberturaOuputFile)&quot; &quot;-sources:$(BuildArtifacts)&quot; " />
+    
+    <Exec WorkingDirectory="$(WorkingDirectory)"  Command="&quot;$(MSBuildProjectDirectory)\BuildTools\opencover.4.5.3427\OpenCover.Console.exe&quot; -register:user -target:$(MsTestExePath)  -targetargs:&quot;/Platform:x64 /InIsolation $(TestAssemblies)&quot; -output:&quot;$(OpenCoverOuputFile)&quot;  -filter:&quot;+[*]* -[DataAccess*]* -[Model*]* -[log4net*]*&quot;"/>
+    
+    <Exec WorkingDirectory="$(WorkingDirectory)"  Command="&quot;$(ConverterPath)\OpenCoverToCoberturaConverter.exe&quot; &quot;-input:$(OpenCoverOuputFile)&quot; &quot;-output:$(OpenCoverCoberturaOuputFile)&quot; &quot;-sources:$(BuildArtifacts)&quot; " />
 
     <Delete Files="TestResult.xml"></Delete>
 
@@ -36,8 +21,6 @@
     <Message Text="CodeCoverage finished" />
 
   </Target>
-
-
 
 
 </Project>

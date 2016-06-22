@@ -12,6 +12,7 @@
   <PropertyGroup>
     <!--msbuild project file location-->
     <RootPath>$(MSBuildProjectDirectory)</RootPath>
+    <RepoSpecificRoot>$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\RepoSpecificTargets</RepoSpecificRoot>
 
     <!--Common msbuild target location for each CI step-->
     <CommonLocation>$(MSBuildProjectDirectory)\CommonTargets</CommonLocation>
