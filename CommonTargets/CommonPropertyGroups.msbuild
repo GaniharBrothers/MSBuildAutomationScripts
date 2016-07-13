@@ -3,8 +3,15 @@
 <Project DefaultTargets="" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
   <ItemGroup>
+    <Environment Include="DT"/>
+    <Environment Include="QA"/>
+    <Environment Include="PROD"/>
+  </ItemGroup>
+
+  <ItemGroup>
     <StyleCopRules Include="$(ToolsBasePath)\StyleCop.MSBuild.4.7.54.0\tools\Settings.StyleCop" />
   </ItemGroup>
+  
   <ItemGroup>
     <FxCopRules Include="$(ToolsBasePath)\Microsoft Fxcop 10.0\Rules\*.dll" />
   </ItemGroup>
@@ -12,12 +19,11 @@
   <PropertyGroup>
     <!--msbuild project file location-->
     <RootPath>$(MSBuildProjectDirectory)</RootPath>
+    
     <RepoSpecificRoot>$(MSBuildProjectDirectory)\..\$(WorkSpaceRootFolderName)\RepoSpecificTargets</RepoSpecificRoot>
 
     <!--Common msbuild target location for each CI step-->
     <CommonLocation>$(MSBuildProjectDirectory)\CommonTargets</CommonLocation>
-
-
 
     <BuildArtifacts>$(RootPath)\..\$(WorkSpaceRootFolderName)\BuildArtifacts</BuildArtifacts>
     
@@ -25,7 +31,7 @@
     <SourceFilesToZip>$(BuildArtifacts)\ZipStaging</SourceFilesToZip>
     <!--<ZipSourcePath>$(RootPath)\..\GitTasks\bin\Release</ZipSourcePath>-->
     <ZipOutPutLocation>$(BuildArtifacts)\DeployableUnit</ZipOutPutLocation>
-    <!--<ZipPath>$(ZipFileLocation)\Continuum.GitTasks.zip</ZipPath>-->
+    
     
     <!--Tools used in CI-->
     <ToolsBasePath>$(RootPath)\BuildTools</ToolsBasePath>
@@ -83,6 +89,23 @@
   
 </PropertyGroup>
 
+  <Choose>
+    <When Condition="'$(BuildOnLocalMachine)' == 'false'">
+      <PropertyGroup>
+        <MsBuildExtensionsPath>C:\Program Files (x86)\MSBuild\ExtensionPack\4.0</MsBuildExtensionsPath>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <MsBuildExtensionsPath>$(ToolsBasePath)\MSBuild.Extension.Pack.1.8.0\tools\net40</MsBuildExtensionsPath>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  
+  
+  
   <Import Project="$(RootPath)\..\$(WorkSpaceRootFolderName)\RepoSpecificProperties.msbuild" />
+
+  <Import Project="$(RootPath)\..\$(WorkSpaceRootFolderName)\RepoSpecificConfigProperties.msbuild" />
   
 </Project>

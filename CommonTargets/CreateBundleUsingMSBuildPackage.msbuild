@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <UsingTask AssemblyFile="$(MsBuildExtensionsPath)\MSBuild.ExtensionPack.dll"
+           TaskName="MSBuild.ExtensionPack.Compression.Zip"/>
+
+
+  <Target Name="BundleDeployableUnit">
+
+    <CallTarget Targets="CreateOutPutFolder" Condition="!Exists('$(ZipOutPutLocation)')" />
+
+    <MSBuild Projects="$(ProjectToBuildandPackage)"
+             Targets="Package"
+             Properties="Configuration=Release;Platform=Any CPU;WarningLevel=0;VisualStudioVersion=12.0;OutPutPath=$(ZipOutPutLocation)\Temp;" />
+    
+  </Target>
+
+
+
+  <Target Name="CreatePackage">
+    <CallTarget Targets="CreateZipFolder" Condition="!Exists('$(SourceFilesToZip)')" />
+
+    <CreateItem Include="$(ToBeCompressedPackagePath)">
+      <Output TaskParameter="Include" ItemName="BuildFilesToCopy"/>
+    </CreateItem>
+
+    <Copy SourceFiles="@(BuildFilesToCopy)" DestinationFiles="@(BuildFilesToCopy->'$(SourceFilesToZip)\%(RecursiveDir)%(Filename)%(Extension)')"  ></Copy>
+
+    <MSBuild.ExtensionPack.Compression.Zip TaskAction="Create" CompressPath="$(SourceFilesToZip)"  ZipFileName="$(DeployableUnitZipName)" RemoveRoot="$(SourceFilesToZip)" />
+
+    <!--<CallTarget Targets="RemoveTempFolder"></CallTarget>-->
+
+  </Target>
+
+
+
+  <Target Name="CreateZipFolder">
+    <MakeDir
+        Directories="$(SourceFilesToZip)"/>
+  </Target>
+
+
+  <Target Name="CreateOutPutFolder">
+    <MakeDir
+        Directories="$(ZipOutPutLocation)"/>
+  </Target>
+
+  <Target Name="RemoveTempFolder">
+    <RemoveDir  Directories="$(ZipOutPutLocation)\Temp" />
+  </Target>
+
+
+</Project>

@@ -6,19 +6,19 @@
              TaskName="MSBuild.ExtensionPack.Compression.Zip"/>
 
 
-  <Target Name="BundleDeployableUnit">
-    <MSBuild Projects="@(ProjectToBuild)"
-             Targets="Package"
-             Properties="Configuration=Release;Platform=Any CPU;WarningLevel=0;VisualStudioVersion=12.0;PackageLocation=$(ZipOutPutLocation)" />
-  </Target>
-
-  <Target Name="BundleDeployableUnit111111">
+  <Target Name="BundleDeployableUnit">    
 
     <CallTarget Targets="CreateOutPutFolder" Condition="!Exists('$(ZipOutPutLocation)')" />
     
     <CallTarget Targets="CreateZipFolder" Condition="!Exists('$(SourceFilesToZip)')" />
 
-    <Copy SourceFiles="@(BuildFilesToCopy)" DestinationFolder="$(SourceFilesToZip)"  ></Copy>
+
+    <CreateItem Include="$(ToBeCompressedPackagePath)">
+      <Output TaskParameter="Include" ItemName="BuildFilesToCopy"/>
+    </CreateItem>
+
+
+    <Copy SourceFiles="@(BuildFilesToCopy)" DestinationFiles="@(BuildFilesToCopy->'$(SourceFilesToZip)\%(RecursiveDir)%(Filename)%(Extension)')"  ></Copy>
 
     <MSBuild.ExtensionPack.Compression.Zip TaskAction="Create" CompressPath="$(SourceFilesToZip)" ZipFileName="$(DeployableUnitZipName)" RemoveRoot="$(SourceFilesToZip)" />
 

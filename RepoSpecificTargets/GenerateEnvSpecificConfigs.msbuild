@@ -1,13 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>  
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="TransformConfigs" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-<Project DefaultTargets="RenameFile" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  <Import Project="$(MSBuildProjectDirectory)\..\..\$(WorkSpaceRootFolderName)\RepoSpecificConfigProperties.msbuild" />
+  
+  <!-- ... -->
+  <UsingTask TaskName="TransformXml" AssemblyFile="C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="TransformConfigs" >
 
-  <UsingTask AssemblyFile="$(ToolsBasePath)\MSBuild.Extension.Pack.1.8.0\tools\net40\MSBuild.ExtensionPack.dll"
-						 TaskName="MSBuild.ExtensionPack.Compression.Zip"/>
+    <MakeDir Directories="$(ConfigRootPath)\Configs"/>
+    <MakeDir Directories="$(ConfigRootPath)\Configs\$(Environment)"/>
+
+    <TransformXml Source="$(ConfigRootPath)\%(ConfigFile.Identity)"
+                  Destination="$(ConfigRootPath)\Configs\$(Environment)\%(ConfigFile.Identity)"
+                  Transform="$(ConfigRootPath)\%(ConfigFile.Identity).$(Environment)" />
 
 
-  <Target Name="RenameFile">
-    <Move  SourceFiles="OriginalFile.txt" DestinationFiles="TargetFile.txt" />
   </Target>
+  <!-- ... -->
 
+  <Target Name="ReplaceEnvSpecificConnectionStrings" >
+    <!--Copy connection strings from server and overwirite the local connections strings file-->
+    <Copy SourceFiles="$(ConnectionStringSourcePath)" DestinationFolder="$(ConfigRootPath)\Configs\$(Environment)"></Copy>
+    <Move  SourceFiles="$(ConfigRootPath)\Configs\$(Environment)\ConnectionStrings.config.$(Environment)" DestinationFiles="$(ConfigRootPath)\Configs\$(Environment)\ConnectionStrings.config" />
+  </Target>
 </Project>

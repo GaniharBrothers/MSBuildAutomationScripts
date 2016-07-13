@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project DefaultTargets="StartCI" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <Import Project="$(MSBuildProjectDirectory)\CommonTargets\CommonPropertyGroups.msbuild" />
+
+  <Choose>
+    <When Condition="'$(OverrideDefaultEnvironmentSpecificConfigTarget)' == 'false'">
+      <PropertyGroup>
+        <EnvironmentSpecificConfigTarget>$(CommonLocation)\GenerateEnvSpecificConfigs.msbuild</EnvironmentSpecificConfigTarget>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <EnvironmentSpecificConfigTarget>$(RepoSpecificRoot)\GenerateEnvSpecificConfigs.msbuild</EnvironmentSpecificConfigTarget>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
+  <Target Name="StartCI">
+
+
+    <CallTarget Targets="Rebuild">
+    </CallTarget>
+
+
+    <CallTarget Targets="GenerateConfigs">
+    </CallTarget>
+
+    <CallTarget Targets="UpdateEnvironmentSpecificConnectionStrings">
+    </CallTarget>
+
+    <CallTarget Targets="BundleDeployableUnit">
+    </CallTarget>
+
+    <CallTarget Targets="FxCop">
+    </CallTarget>
+
+    <CallTarget Targets="StyleCop">
+    </CallTarget>
+
+    <CallTarget Targets="UnitTest">
+    </CallTarget>
+
+    <CallTarget Targets="CodeCoverage">
+    </CallTarget>
+
+
+    <!--<CallTarget Targets="GenerateDocumentation">
+    </CallTarget>-->
+
+  </Target>
+
+
+  <Target Name="GenerateConfigs">
+
+    <MSBuild Projects ="$(EnvironmentSpecificConfigTarget)"
+           Properties="Environment=%(Environment.Identity)"
+           Targets="TransformConfigs" />
+    
+  </Target>
+
+  <Target Name="UpdateEnvironmentSpecificConnectionStrings">
+    
+    <MSBuild Projects ="$(EnvironmentSpecificConfigTarget)"
+           Properties="Environment=%(Environment.Identity)"
+           Targets="ReplaceEnvSpecificConnectionStrings" />
+    
+  </Target>
+
+  <Import Project="$(RepoSpecificRoot)\Build.msbuild" Condition="'$(OverrideDefaultBuildTarget)' == 'true' and exists('$(RepoSpecificRoot)\Build.msbuild')" />
+
+  <Import Project="$(CommonLocation)\Build.msbuild" Condition="'$(OverrideDefaultBuildTarget)' == 'false'" />
+
+  <Import Project="$(RepoSpecificRoot)\FxCop.msbuild" Condition="'$(OverrideDefaultFxCopTarget)' == 'true' and exists('$(RepoSpecificRoot)\FxCop.msbuild')" />
+
+  <Import Project="$(CommonLocation)\FxCop.msbuild" Condition="'$(OverrideDefaultFxCopTarget)' == 'false'" />
+
+  <Import Project="$(RepoSpecificRoot)\StyleCop.msbuild" Condition="'$(OverrideDefaultStyleCopTarget)' == 'true' and exists('$(RepoSpecificRoot)\StyleCop.msbuild')" />
+
+  <Import Project="$(CommonLocation)\StyleCop.msbuild" Condition="'$(OverrideDefaultStyleCopTarget)' == 'false'" />
+
+  <Import Project="$(RepoSpecificRoot)\UnitTest.msbuild" Condition="'$(OverrideDefaultUnitTestTarget)' == 'true' and exists('$(RepoSpecificRoot)\UnitTest.msbuild')" />
+
+  <Import Project="$(CommonLocation)\UnitTest.msbuild" Condition="'$(OverrideDefaultUnitTestTarget)' == 'false'" />
+
+  <Import Project="$(RepoSpecificRoot)\CodeCoverage.msbuild" Condition="'$(OverrideDefaultCodeCoverageTarget)' == 'true' and exists('$(RepoSpecificRoot)\CodeCoverage.msbuild')" />
+
+  <Import Project="$(CommonLocation)\CodeCoverage.msbuild" Condition="'$(OverrideDefaultCodeCoverageTarget)' == 'false'" />
+
+  <Import Project="$(RepoSpecificRoot)\CreateBundleUsingMSbuildZip.msbuild" Condition="'$(OverrideDefaultCreateBundleTarget)' == 'true' and exists('$(RepoSpecificRoot)\CreateBundleUsingMSbuildZip.msbuild')" />
+
+  <Import Project="$(CommonLocation)\CreateBundleUsingMSbuildZip.msbuild" Condition="'$(OverrideDefaultCreateBundleTarget)' == 'false'" />
+
+  <Import Project="$(RepoSpecificRoot)\GenerateDocumentation.msbuild" Condition="'$(OverrideDefaultGenerateDocumentationTarget)' == 'true' and exists('$(RepoSpecificRoot)\GenerateDocumentation.msbuild')" />
+
+  <Import Project="$(CommonLocation)\GenerateDocumentation.msbuild" Condition="'$(OverrideDefaultGenerateDocumentationTarget)' == 'false'" />
+
+
+</Project>
