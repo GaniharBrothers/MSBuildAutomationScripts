@@ -21,7 +21,7 @@
   <Target Name="CreatePackage">
     <CallTarget Targets="CreateZipFolder" Condition="!Exists('$(SourceFilesToZip)')" />
 
-    <CreateItem Include="$(ToBeCompressedPackagePath)">
+    <CreateItem Include="$(FilesToBeCompressedForPackage)" Exclude="$(FilesTobeExcludedFromPackage)">
       <Output TaskParameter="Include" ItemName="BuildFilesToCopy"/>
     </CreateItem>
 
