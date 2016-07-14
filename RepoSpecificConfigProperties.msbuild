@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project DefaultTargets="" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+
+  <PropertyGroup>
+    <ConfigRootPath>$(MSBuildProjectDirectory)\..\..\$(WorkSpaceRootFolderName)\Hyper-V.WebAPI</ConfigRootPath>
+    <ConnectionStringSourcePath>E:\Config\Hyper-V.WebAPI</ConnectionStringSourcePath>
+    <ConnectionStringFileName>ConnectionStrings.config</ConnectionStringFileName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ConfigFile Include="Web.config"/>
+  </ItemGroup>
+
+</Project>
