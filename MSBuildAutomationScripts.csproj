@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94962550-A0BB-4B06-9787-376C0938921F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MSBuildAutomationScripts</RootNamespace>
+    <AssemblyName>MSBuildAutomationScripts</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="CICDMasterTarget.msbuild" />
+    <None Include="CICDMasterTarget_WebAPI.msbuild" />
+    <None Include="CICDMasterTarget_WidowsService.msbuild" />
+    <None Include="CommonTargets\Build.msbuild" />
+    <None Include="CommonTargets\CodeCoverage.msbuild" />
+    <None Include="CommonTargets\CommonPropertyGroups.msbuild" />
+    <None Include="CommonTargets\CreateBundleUsingMSBuildPackage.msbuild" />
+    <None Include="CommonTargets\CreateBundleUsingMSbuildZip.msbuild" />
+    <None Include="CommonTargets\FxCop.msbuild" />
+    <None Include="CommonTargets\GenerateDocumentation.msbuild" />
+    <None Include="CommonTargets\GenerateEnvSpecificConfigs.msbuild" />
+    <None Include="CommonTargets\StyleCop.msbuild" />
+    <None Include="CommonTargets\UnitTest.msbuild" />
+    <None Include="RepoSpecificConfigProperties.msbuild" />
+    <None Include="RepoSpecificProperties.msbuild" />
+    <None Include="RepoSpecificTargets\Build.msbuild" />
+    <None Include="RepoSpecificTargets\CodeCoverage.msbuild" />
+    <None Include="RepoSpecificTargets\CommonPropertyGroups.msbuild" />
+    <None Include="RepoSpecificTargets\CreateBundle.msbuild" />
+    <None Include="RepoSpecificTargets\FxCop.msbuild" />
+    <None Include="RepoSpecificTargets\GenerateDocumentation.msbuild" />
+    <None Include="RepoSpecificTargets\GenerateEnvSpecificConfigs.msbuild" />
+    <None Include="RepoSpecificTargets\StyleCop.msbuild" />
+    <None Include="RepoSpecificTargets\UnitTest.msbuild" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CommonTargets\SHFBDocumentation.shfbproj" />
+    <Content Include="RepoSpecificTargets\SHFBDocumentation.shfbproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

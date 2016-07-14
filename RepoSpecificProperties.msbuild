@@ -60,6 +60,7 @@
      
   <PropertyGroup>
     <DocumentationSources>
+      <!--Help file will be generated for following source file-->
       <DocumentationSource sourceFile="$(MSBuildProjectDirectory)\..\..\$(WorkSpaceRootFolderName)\rmm-virtualization-hyperv-webapi.sln" />
     </DocumentationSources>
   </PropertyGroup>

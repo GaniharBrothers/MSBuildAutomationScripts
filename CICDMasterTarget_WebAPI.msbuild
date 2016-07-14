@@ -44,8 +44,8 @@
 
     <CallTarget Targets="CreatePackage" />
     
-    <!--<CallTarget Targets="GenerateDocumentation">
-    </CallTarget>-->
+    <CallTarget Targets="GenerateDocumentation">
+    </CallTarget>
     
   </Target>
 
