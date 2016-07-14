@@ -27,9 +27,6 @@
     <CallTarget Targets="GenerateConfigs">
     </CallTarget>
 
-    <CallTarget Targets="UpdateEnvironmentSpecificConnectionStrings">
-    </CallTarget>
-
     <CallTarget Targets="BundleDeployableUnit">
     </CallTarget>
 
@@ -60,13 +57,13 @@
     
   </Target>
 
-  <Target Name="UpdateEnvironmentSpecificConnectionStrings">
+  <!--<Target Name="UpdateEnvironmentSpecificConnectionStrings">
     
     <MSBuild Projects ="$(EnvironmentSpecificConfigTarget)"
            Properties="Environment=%(Environment.Identity)"
            Targets="ReplaceEnvSpecificConnectionStrings" />
     
-  </Target>
+  </Target>-->
 
   <Import Project="$(RepoSpecificRoot)\Build.msbuild" Condition="'$(OverrideDefaultBuildTarget)' == 'true' and exists('$(RepoSpecificRoot)\Build.msbuild')" />
 

@@ -55,12 +55,13 @@
     <MSBuild Projects ="$(CommonLocation)\GenerateEnvSpecificConfigs.msbuild"
            Properties="Environment=%(Environment.Identity)"
            Targets="TransformConfigs" />
+  </Target>
 
-
+  <!--<Target Name="UpdateEnvironmentSpecificConnectionStrings">
     <MSBuild Projects ="$(CommonLocation)\GenerateEnvSpecificConfigs.msbuild"
            Properties="Environment=%(Environment.Identity)"
            Targets="ReplaceEnvSpecificConnectionStrings" />
-  </Target>
+  </Target>-->
 
 
   <Import Project="$(RepoSpecificRoot)\Build.msbuild" Condition="'$(OverrideDefaultBuildTarget)' == 'true' and exists('$(RepoSpecificRoot)\Build.msbuild')" />
